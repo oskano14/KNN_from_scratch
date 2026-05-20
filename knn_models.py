@@ -44,14 +44,14 @@ class KNN:
     def grid_search(self, X_train, y_train, X_val, y_val, k_values):
         best_k = None
         best_score = -1
-        Results
+        Results = {}
         for k in k_values:
             self.k = k
             self.fit(X_train, y_train)
             score = self.evaluate(X_val, y_val)
-            results[k] = score
+            Results[k] = score
             if score > best_score:
                 best_score = score
                 best_k = k
         self.k = best_k  # Mettre à jour le modèle avec le meilleur k trouvé
-        return best_k, best_score, results
+        return best_k, best_score, Results
